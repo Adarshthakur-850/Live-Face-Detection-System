@@ -1,75 +1,135 @@
 # Live Face Detection System
 
-A production-quality, real-time face detection system using Python and OpenCV.
+A real-time **Live Face Detection System** built using **Python, OpenCV, and Machine Learning/Computer Vision techniques** to detect human faces through webcam input or uploaded images.
+
+## Project Overview
+
+This project captures live video from a webcam and detects human faces in real time. It can be used for:
+
+* Face detection in live video streams
+* Security and surveillance systems
+* Attendance systems
+* Smart camera applications
+* Human-computer interaction projects
+
+The system processes each video frame, identifies facial regions, and highlights detected faces using bounding boxes.
+
+---
 
 ## Features
-- **Real-time Detection**: Uses Haar Cascades for fast face detection.
-- **Threaded Video Capture**: Ensures smooth video playback without blocking the detection loop.
-- **Performance Optimized**: Resizes frames for faster processing.
-- **FPS Display**: Shows frames per second and detected face count.
+
+* Real-time face detection using webcam
+* Detects multiple faces simultaneously
+* Fast frame processing
+* Bounding box visualization around faces
+* Easy to run locally
+* Lightweight implementation
+
+---
+
+## Tech Stack
+
+* **Python**
+* **OpenCV**
+* **NumPy**
+* Haar Cascade / Deep Learning Face Detection Model
+
+---
 
 ## Project Structure
-```
-face_detection/
-│
-├── main.py          # Entry point
-├── detector.py      # Face detection logic
-├── camera.py        # Threaded camera capture class
-├── utils.py         # Helper functions for drawing and display
-└── requirements.txt # Project dependencies
+
+```bash
+Live-Face-Detection-System/
+│── app.py / main.py
+│── face_detection.py
+│── requirements.txt
+│── haarcascade_frontalface_default.xml
+│── model/
+│── screenshots/
+│── README.md
 ```
 
-## Requirements
-- Python 3.x
-- Webcam
+---
 
 ## Installation
 
-1.  **Clone or Download** this repository.
-2.  **Install dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+Clone the repository:
 
-## Usage
-
-1.  **Run the application**:
-    ```bash
-    python main.py
-    ```
-2.  **Exit**:
-    Press `q` to quit the application.
-
-## Docker Usage
-
-This project includes a `Dockerfile` for running the application in a container.
-
-### 1. Build the Image
 ```bash
-docker build -t face-detection-app .
+git clone https://github.com/Adarshthakur-850/Live-Face-Detection-System.git
+cd Live-Face-Detection-System
 ```
 
-### 2. Run the Container
-Running GUI applications and accessing the webcam from Docker requires specific flags depending on your OS.
+Install dependencies:
 
-#### Linux
 ```bash
-docker run -it --rm --device=/dev/video0 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix face-detection-app
+pip install -r requirements.txt
 ```
-*Note: You may need to run `xhost +local:docker` on your host machine to allow the container to access the display.*
 
-#### Windows
-Running GUI/Webcam apps from Docker Desktop on Windows is complex and requires:
-1.  **X Server**: Install VcXsrv (or Xming) to handle the GUI.
-2.  **WSL2**: Ensure you are using the WSL2 backend.
-3.  **Command**:
-    ```powershell
-    # Assuming VcXsrv is running correctly with "Disable access control" checked
-    docker run -it --rm -e DISPLAY=host.docker.internal:0.0 face-detection-app
-    ```
-*Note: Webcam passthrough to Docker on Windows is experimental and may require specific kernel drivers or third-party tools (like USBIP).*
+---
 
-## Troubleshooting
-- If the camera doesn't open, ensure no other application is using it.
-- If faces are not detected, ensure good lighting and face the camera directly.
-- **Docker**: If you encounter "cannot open display" errors, verify your X Server settings (X11 forwarding).
+## How to Run
+
+Run the application:
+
+```bash
+python app.py
+```
+
+OR
+
+```bash
+python main.py
+```
+
+The webcam will open and start detecting faces in real time.
+
+Press **Q** to quit.
+
+---
+
+## Working Flow
+
+1. Capture live webcam feed
+2. Convert frames for processing
+3. Apply face detection model
+4. Detect facial regions
+5. Draw bounding boxes
+6. Display output in real-time
+
+---
+
+## Sample Output
+
+Add screenshots or GIFs of your project here.
+
+Example:
+
+* Face detected in webcam stream
+* Multiple face detection
+* Real-time bounding box output
+
+---
+
+## Future Improvements
+
+* Face recognition integration
+* Emotion detection
+* Mask detection
+* Attendance automation
+* Deployment using Flask/Streamlit
+* Cloud integration
+
+---
+
+## Author
+
+**Adarsh Thakur**
+
+GitHub: [https://github.com/Adarshthakur-850](https://github.com/Adarshthakur-850)
+
+---
+
+## License
+
+This project is open-source and available under the MIT License.
